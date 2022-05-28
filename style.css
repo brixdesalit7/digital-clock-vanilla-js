@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(0, 0, 0);
+}
+.wrapper {
+    margin: 0 auto;
+    display: block;
+    width: 1100px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius:10px;
+    padding:  15px 10px;
+    background: linear-gradient(to right ,#e100ff, #5dbeff,#c765ff, #ff0682);
+}
+.wrapper:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    transform: translateX(10px) scale(1);
+    filter: blur(100px);
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+.digital-clock h1 {
+    font-size: 160px;
+    text-align: center;
+    background:  linear-gradient(to right ,#e100ff, #5dbeff,#c765ff, #ff0682);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.digital-clock h2 {
+    font-size: 50px;
+    text-align: center;
+    background:  linear-gradient(to right ,#e100ff, #5dbeff,#c765ff, #ff0682);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

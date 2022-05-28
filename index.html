@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock using Javascript</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="digital-clock">
+            <h1 id="clock"></h1>
+            <h2 id="day"></h2>
+        </div>
+    </div>
+
+    <script>
+        const currentTime = () => {
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let sessions = "AM";
+         
+            if(hours == 0) {
+                hh = 12;
+            }
+            if(hours > 12) {
+                hours = hours - 12;
+                sessions = "PM";
+            }
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes; 
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            let time = hours + ":" + minutes + ":" + seconds + " " +  sessions;
+            document.getElementById("clock").innerHTML = time;
+
+            let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            let day = days[date.getDay()];
+            let currdate = date.getDate();
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let month = months[date.getMonth()];
+            let year = date.getFullYear();
+
+            let displayDate = day + ", " + currdate + " " + month + " " + year ;
+
+            document.getElementById("day").innerHTML = displayDate;
+
+            let t = setTimeout(() => {
+               currentTime(); 
+            }, 1000);
+        }
+        setTimeout(() => {
+            currentTime();
+        }, 1000);
+    </script>
+</body>
+</html>
