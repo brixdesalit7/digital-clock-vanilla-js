@@ -17,42 +17,53 @@
 
     <script>
         const currentTime = () => {
+            // get Date method
             let date = new Date();
+            // get date Hours method
             let hours = date.getHours();
+            // get date Minutes method
             let minutes = date.getMinutes();
+            // get date second method
             let seconds = date.getSeconds();
+            // assign AM to sessions variable
             let sessions = "AM";
-         
+            // if hours is equal to 0 change the value of hours to 12
             if(hours == 0) {
-                hh = 12;
+                hours = 12;
             }
+            // if the value of hours is greater than 12
+            // minus the current value of hours to 12
+            // change the value of session to PM
             if(hours > 12) {
                 hours = hours - 12;
                 sessions = "PM";
             }
-
+            // if the value of hours is less than 10 add 0 on first line and concat the current hours
             hours = (hours < 10) ? "0" + hours : hours;
             minutes = (minutes < 10) ? "0" + minutes : minutes; 
             seconds = (seconds < 10) ? "0" + seconds : seconds;
-
+            // format the hours
             let time = hours + ":" + minutes + ":" + seconds + " " +  sessions;
             document.getElementById("clock").innerHTML = time;
-
+                
+            // the getDay, getMonth method will return number
+            // store the list of days to array
+            // get the current date in days array with date.getDate method
             let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
             let day = days[date.getDay()];
             let currdate = date.getDate();
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             let month = months[date.getMonth()];
             let year = date.getFullYear();
-
+            // format the date
             let displayDate = day + ", " + currdate + " " + month + " " + year ;
-
             document.getElementById("day").innerHTML = displayDate;
-
+        
             let t = setTimeout(() => {
-               currentTime(); 
+            currentTime(); 
             }, 1000);
         }
+        // execute the currentTime function every 1000 milleseconds or 1secs
         setTimeout(() => {
             currentTime();
         }, 1000);
